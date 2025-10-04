@@ -22,6 +22,11 @@
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <20 21>;
         };
+
+        trans {
+            bindings = <&none>;
+            key-positions = <10 40>;
+        };
     };
 
     macros {
@@ -30,6 +35,14 @@
             #binding-cells = <1>;
             bindings = <&to 0 &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "TO_LAYER_0";
+        };
+
+        new_macro: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none>, <&macro_press>;
+
+            label = "NEW_MACRO";
         };
     };
 
@@ -58,10 +71,10 @@
 
         default_layer {
             bindings = <
-&kp Q               &kp W     &kp E                &kp R      &kp T                                          &kp Y    &kp U  &lt 5 I    &kp O    &kp P
-&mt LEFT_CONTROL A  &kp S     &kp D                &kp F      &kp G        &mkp MCLK      &kp LBKT           &kp H    &kp J  &kp K      &kp L    &kp MINUS
-&mt LEFT_SHIFT Z    &kp X     &kp C                &kp V      &kp B        &mkp LCLK      &kp RIGHT_BRACKET  &kp N    &kp M  &kp COMMA  &kp DOT  &kp SLASH
-&kp LEFT_COMMAND    &kp LALT  &lt 6 DOUBLE_QUOTES  &lt 1 TAB  &lt 2 SPACE  &lt 3 ESC      &kp BACKSPACE      &kp RET                             &kp EQUAL
+&kp Q             &kp W     &kp E             &kp R      &kp T                                        &kp Y    &kp U  &lt 5 I    &kp O    &kp P
+&kp A             &kp S     &kp D             &kp F      &kp G      &mkp MCLK      &kp LBKT           &kp H    &kp J  &kp K      &kp L    &kp MINUS
+&mt LEFT_SHIFT Z  &kp X     &kp C             &kp V      &kp B      &mkp LCLK      &kp RIGHT_BRACKET  &kp N    &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&kp LEFT_CONTROL  &kp LALT  &kp LEFT_COMMAND  &lt 1 ESC  &lt 2 TAB  &lt 3 DEL      &kp SPACE          &kp RET                             &kp EQUAL
             >;
 
             sensor-bindings = <&ROTATE SCRL_DOWN SCRL_UP>;
